@@ -32,14 +32,11 @@ total_score.append(m)
 total_score.append(round(m1,2))
 total_score.insert(0,'平均')
 total_score.insert(0,0)
+# *****************处理全班的平均分问题********************
 
-
-
-
-
-
+#**********************处理个人成绩*******************
 for line in lines:
-    # *****************处理全班的平均分问题********************
+
     sum = 0  #需要一个存放成绩的空变量
 
     k = 0.0   #需要一个计数器，计算有几门科目
@@ -56,16 +53,21 @@ for line in lines:
     i.append(sum_ave)
     single_score.append(i)
 
+    # **********************处理个人成绩*******************
 
 
-
-    #*************处理完成，开始排序**********88
+    #*************处理排序**********88
 single_score.sort(key = lambda  x :x[11],reverse = True )
 
 m = 1
 for i in single_score :
     i.insert(0,m)
     m += 1
+
+single_score.insert(0,total_score)
 print single_score
 
 
+#*************处理排序**********88
+
+#****************处理写入*************
