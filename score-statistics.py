@@ -64,10 +64,34 @@ for i in single_score :
     i.insert(0,m)
     m += 1
 
-single_score.insert(0,total_score)
-print single_score
+#single_score.insert(0,total_score)
 
+#*************替换不及格*********
+#主要思想是列表的元素可以直接更改。
+single_replace = []
+for i in single_score:
+    for m_n in i[2:11] :
+
+        if int(m_n) < 60:
+            i[i.index(m_n)] = 'failed'
+    single_replace.append(i)
+
+
+
+
+#****替换不及格**********
 
 #*************处理排序**********88
 
+with open('report_1','w') as f:
+    f.write('姓名 名次 语文 数学 英语 物理 化学 生物 政治 历史 地理 总分 平均分\n')
+    for w in total_score:
+        f.write(str(w)+' ')
+    f.write('\n')
+    for i in single_replace:
+        for q in i :
+            f.write(str(q)+' ')
+        f.write('\n')
+
 #****************处理写入*************
+
